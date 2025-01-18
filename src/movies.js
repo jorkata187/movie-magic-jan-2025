@@ -7,7 +7,7 @@ export default [
         imageUrl: '/static/img/jungle-cruise.jpeg',
         director: 'Jaume Collet-Serra',
         year: '2021',
-        rating: '6.6',
+        rating: 6.6,
         category: 'movie',
 },
 {
@@ -18,7 +18,7 @@ export default [
     imageUrl: 'https://m.media-amazon.com/images/M/MV5BMTk5ODk1NDkxMF5BMl5BanBnXkFtZTcwNTA5OTY0OQ@@._V1_FMjpg_UX1000_.jpg',
     director: 'Zack Snyder',
     year: '2013',
-    rating: '7.1',
+    rating: 7.1,
     category: 'movie',
 }
 ];
