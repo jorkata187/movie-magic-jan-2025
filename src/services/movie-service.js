@@ -26,11 +26,12 @@ export default {
         return result;
     },
     create(movieData) {
-        movies.push({
+        const result = Movie.create({
             ...movieData,
             rating: Number(movieData.rating),
+            year: Number(movieData.year),
         });
 
-        return newId;
+        return result;
     }
 }
