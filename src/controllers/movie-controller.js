@@ -1,5 +1,6 @@
 import { Router } from "express";
 import movieService from "../services/movie-service.js";
+import castService from "../services/cast-service.js";
 
 
 const movieController = Router();
@@ -7,9 +8,9 @@ const movieController = Router();
 movieController.get('/search', async (req, res) => {
     const filter = req.query;
 
-    const movies =  await movieService.getAll(filter);
+    const movies = await movieService.getAll(filter);
 
-    res.render('search', {movies, filter});
+    res.render('search', { movies, filter });
 })
 
 movieController.get('/create', (req, res) => {
@@ -22,21 +23,22 @@ movieController.post('/create', async (req, res) => {
     await movieService.create(newMovie);
 
     res.redirect('/');
-    
+
 });
 
-movieController.get('/:movieId/details', async(req, res) => {
+movieController.get('/:movieId/details', async (req, res) => {
     const movieId = req.params.movieId;
     const movie = await movieService.getOne(movieId);
-    
+
     res.render('movie/details', { movie });
 });
 
 movieController.get('/:movieId/attach-cast', async (req, res) => {
     const movieId = req.params.movieId;
     const movie = await movieService.getOne(movieId);
+    const casts = await castService.getAll();
 
-    res.render('movie/attach-cast', {movie});
+    res.render('movie/attach-cast', { movie, casts });
 });
 
 export default movieController;
