@@ -36,7 +36,7 @@ movieController.get('/:movieId/details', async (req, res) => {
 movieController.get('/:movieId/attach-cast', async (req, res) => {
     const movieId = req.params.movieId;
     const movie = await movieService.getOne(movieId);
-    const casts = await castService.getAll();
+    const casts = await castService.getAll({exclude: movie.casts});
 
     res.render('movie/attach-cast', { movie, casts });
 });
