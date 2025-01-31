@@ -15,9 +15,11 @@ export const authMiddleware = (req, res, next) => {
 
         // Attach decoded token to request
         req.user = decodedToken;
-        
+
         next();
     } catch (err) {
-        // TODO: Invalid token
+        // When invalid token: clear cookie and redirect to login
+        res.clearCookie('auth');
+        res.redirect('/auth/login');
     }
 };
