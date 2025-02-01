@@ -6,16 +6,16 @@ export default {
 
         if (filter.search) {
             // TODO: Fix partial case insensitive search
-            query = query.where({title: filter.search});
+            query = query.where({ title: filter.search });
         };
 
         if (filter.genre) {
             // TODO: Add case insensitive search
-            query = query.where({genre: filter.genre});
+            query = query.where({ genre: filter.genre });
         }
 
         if (filter.year) {
-            query = query.where({year: Number(filter.year)});
+            query = query.where({ year: Number(filter.year) });
         }
 
         return query;
@@ -50,9 +50,12 @@ export default {
         // return movie;
 
         // Attach #2
-        return Movie.findByIdAndUpdate(movieId, {$push: {casts: castId}});
+        return Movie.findByIdAndUpdate(movieId, { $push: { casts: castId } });
     },
     delete(movieId) {
         return Movie.findByIdAndDelete(movieId);
+    },
+    update(movieId, movieData) {
+        return Movie.findByIdAndUpdate(movieId, movieData);
     }
 }
