@@ -3,7 +3,7 @@ import { Schema, model, Types } from "mongoose";
 const movieSchema = new Schema({
     title: {
         type: String,
-        require: [true, 'Title is required!'],
+        required: [true, 'Title is required!'],
         minLength: [5, 'Title shoud be at list 5 character long!'],
         maxLength: 30,
         match: /^[a-zA-z0-9]+$/
@@ -11,7 +11,7 @@ const movieSchema = new Schema({
     category: String,
     genre: {
         type: String,
-        require: [true, 'Genre is required!'],
+        required: [true, 'Genre is required!'],
         minLength: [5, 'Genre shoud be at list 5 character long!'],
         maxLength: 30,
         match: /^[a-zA-z0-9]+$/
