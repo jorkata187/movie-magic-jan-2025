@@ -8,7 +8,17 @@ const movieSchema = new Schema({
         maxLength: 30,
         match: /^[a-zA-z0-9]+$/
     },
-    category: String,
+    category: {
+        type: String,
+        required: true,
+        enum: [
+            'tv-show',
+            'animation',
+            'movie',
+            'documentary',
+            'short-film',
+        ]
+    },
     genre: {
         type: String,
         required: [true, 'Genre is required!'],
