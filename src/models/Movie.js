@@ -48,8 +48,8 @@ const movieSchema = new Schema({
     },
     description: {
         type: String,
-        minLength: 20,
-        match: /^[a-zA-z0-9]+$/
+        minLength: 5,
+        match: /^[a-zA-z0-9 ]+$/
     },
     casts: [{
         type: Types.ObjectId,

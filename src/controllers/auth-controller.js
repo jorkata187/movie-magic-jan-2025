@@ -17,8 +17,7 @@ authController.post('/register', async (req, res) => {
     } catch (err) {
         const error = getErrorMesssage(err);
 
-        return res.render('auth/register', {error});
-        // return res.redirect('/auth/register');
+        return res.render('auth/register', { error });
     }
     res.redirect('/auth/login');
 });
@@ -36,13 +35,13 @@ authController.post('/login', async (req, res) => {
         res.redirect('/');
     } catch (err) {
         console.log(err.message);
-        res.redirect('/404');
+        return res.render('auth/login', { error: getErrorMesssage(err) });
     }
 });
 
 authController.get('/logout', isAuth, (req, res) => {
     res.clearCookie('auth');
-    
+
     res.redirect('/');
 });
 

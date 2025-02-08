@@ -56,6 +56,6 @@ export default {
         return Movie.findByIdAndDelete(movieId);
     },
     update(movieId, movieData) {
-        return Movie.findByIdAndUpdate(movieId, movieData);
+        return Movie.findByIdAndUpdate(movieId, movieData, { runValidators: true });
     }
 }
