@@ -56,3 +56,4 @@ app.use(routes);
 // Start server
 app.listen(5000, () => console.log('Server is listening on http://localhost:5000...')
 ); 
+console.log('Job done')
